@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyContactDemo</string>
+    <string name="title_activity_display_contact">Show Contact</string>
 </resources>

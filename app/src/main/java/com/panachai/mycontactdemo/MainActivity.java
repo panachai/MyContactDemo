@@ -1,8 +1,12 @@
 package com.panachai.mycontactdemo;
 
+import android.content.Intent;
+import android.icu.text.DisplayContext;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -28,6 +32,20 @@ public class MainActivity extends ActionBarActivity {
                 ArrayAdapter(this,
                 android.R.layout.simple_list_item_1,arrayList);
         lvContact.setAdapter(arrayAdapter);
+
+        //เป็นการเขียน Event OnClick อีกแบบนึง
+        //ใส่ Event เมื่อผู้ใช้เลือกรายชื่อผู้ติดต่อใน listview
+        lvContact.SetOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                //ส่งค่าผู้ติดต่อที่เลือกไปยังอีก Activity นึง
+                Bundle bundle = new Bundle();
+                bundle.putInt("id",i+1); //เพื่อให้ index ของ ItemList ตรงกับ listview
+                Intent intent = new Intent(getApplicationContext(), DisplayContact.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
         //-----------------------------
     }
 }
