@@ -35,7 +35,7 @@ public class MainActivity extends ActionBarActivity {
 
         //เป็นการเขียน Event OnClick อีกแบบนึง
         //ใส่ Event เมื่อผู้ใช้เลือกรายชื่อผู้ติดต่อใน listview
-        lvContact.SetOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lvContact.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
                 //ส่งค่าผู้ติดต่อที่เลือกไปยังอีก Activity นึง
